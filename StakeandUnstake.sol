@@ -38,4 +38,20 @@ contract StakeandUnstake {
         require(balance > 0, "staking balance cannot be 0");
         daiToken.transfer(msg.sender, balance);
         stakingBalance[msg.sender] = 0;
+        isStaking[msg.sender] = true;
+        hasStaked[msg.sender] = true;
+        
      }
+
+     //Issue Tokens
+      function issueTokens() public {
+      require(msg.sender == owner);
+      if (balance < 500) {
+         avaToken.transfer(recipient, balance);
+      }
+      if (balance >= 500 && <= 2000) {
+         avaToken.transfer(recipient, balance);
+      }
+   }
+}
+
