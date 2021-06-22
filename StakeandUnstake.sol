@@ -43,12 +43,13 @@ contract StakeandUnstake {
         
      }
 
-     //Issue Tokens
+     //Issue Tokens to users
       function issueTokens() public {
       require(msg.sender == owner);
       if (balance < 500) {
          avaToken.transfer(recipient, balance);
       }
+
       if (balance >= 500 && <= 2000) {
          avaToken.transfer(recipient, balance);
       }
